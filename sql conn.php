@@ -1,15 +1,32 @@
 <?php
-$servername = "localhost";
-$user = "test";
-$password = "Comp2140";
-$dbase = " database";
 
-//create connection
-$conn =new mysqli($servername,$user,$password);
+class db_conn{
+  private $servername;
+  private $user;
+  private $password;
+  private $dbase;
+  private $charset;
 
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+  public function connect(){
+    $this->servername = "localhost";
+    $this->user = "test";
+    $this->password = "Comp2140";
+    $this->dbase = " eilps";
+    $this->charset = "utf8mb4";
+
+    try{
+      //create connection
+    $dsn = "mysql:host=".$this->$servername.";dbname=".$this->dbname.";charset=".$this->charset;
+    $pdo = new PDO($dsn,$this->user,$this->password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    return $pdo;
+   
+    }catch (PDOException $e){
+    echo "Connection failed: ".$e->getMessage;
+  }
+  
+  }
 }
-echo "Connected successfully";
+
+
 ?>
