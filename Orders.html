@@ -9,7 +9,15 @@
         .menu{
             background-color: #3c0b64;
         }
-        .passpic, .mug11, .mug16, .keyS, .keyL, .p4x6, .p5x7, .p6x8, .p8x10, .p8x12, .p10x12, .p11x14, .p11x17, .p13x16, .custom{
+        .order-search{
+            text-align: center;
+            font-weight: bold;
+        }
+        .result{
+            text-align: center;
+        }
+    
+        .order-search,.passpic, .mug11, .mug16, .keyS, .keyL, .p4x6, .p5x7, .p6x8, .p8x10, .p8x12, .p10x12, .p11x14, .p11x17, .p13x16, .custom{
             padding-bottom: 15px;
             float: left;
         }
@@ -34,9 +42,13 @@
             padding-top: 50%;
             padding-left: 20%;
         }
+        .error{
+            background-color: red;
+        }
         
     </style>
     <link rel="stylesheet" href="styles/index.css">
+    <script type="text/javascript" src = "orders.js"></script>
     <div class="menu">
         <ul class="bannertxt">
             <li class="logo"><img src="photos/eilapslogo.png"></li>
@@ -50,7 +62,23 @@
     <div class="head">
         <legend>Your Order</legend>
     </div>
-    
+    <form class="form-horizontal">
+        <fieldset>
+            
+        <!-- Search input-->
+        <div class="order-search">
+          <label class="col-md-4 control-label" for="searchinput">Order Progress</label>
+          <div class="col-md-4">
+            <input id="searchinput" name="searchinput" type="search" placeholder="Please enter your TRN" class="form-control input-md">
+            <p class="help-block">Here you can check the status of your order/s</p>
+          </div>
+        </div>
+        <div class="result">
+
+        </div>
+        
+        </fieldset>
+        </form>
     <form class="form-horizontal">
         <fieldset>
         <!--  <div class="chd">
