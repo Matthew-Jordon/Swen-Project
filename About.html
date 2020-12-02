@@ -1,49 +1,123 @@
+<!DOCTYPE html>
 <html>
-<div class="about-section">
-    <h1>About Us</h1>
-    <p>Some text about who we are and what we do.</p>
-    <p>Resize the browser window to see that this page is responsive by the way.</p>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+font-family: Arial, Helvetica, sans-serif;
+margin: 0;
+}
+
+html {
+box-sizing: border-box;
+}
+
+*, *:before, *:after {
+box-sizing: inherit;
+}
+
+.column {
+float: left;
+width: 33.3%;
+margin-bottom: 16px;
+padding: 0 8px;
+}
+
+.card {
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+margin: 8px;
+}
+
+.abtsec {
+padding-bottom: -30px;
+padding: 50px;
+text-align: center;
+background-color: #3c0b64;
+color: white;
+}
+
+.container {
+padding: 0 16px;
+}
+
+.container::after, .row::after {
+content: "";
+clear: both;
+display: table;
+}
+
+.title {
+color: grey;
+}
+
+.button {
+border: none;
+outline: 0;
+display: inline-block;
+padding: 8px;
+color: white;
+background-color: #000;
+text-align: center;
+cursor: pointer;
+width: 100%;
+}
+
+.button:hover {
+background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+.column {
+    width: 100%;
+    display: block;
+}
+}
+.location{
+    text-align: center;
+    color: #3c0b64;
+}
+.googlemap1{
+    float: left;
+    padding: 50px;
+}
+.googlemap2{
+    float:right;
+    padding: 50px;
+}
+.menu{
+background-color: #3c0b64;
+}
+</style>
+<link rel="stylesheet" href="styles/index.css">
+</head>
+<body>
+    <header class="menu">
+        <ul class="bannertxt">
+            <li class="logo"><img src="photos/eilapslogo.png"></li>
+            <li><a href="index.html" >Home</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="Gallery.html">Gallery</a></li>
+            <li><a href="Orders.html">Orders</a></li>
+            <li><a href="About.html" class ="active">About Us</a></li>
+        </ul>
+    </header>
+<div class="abtsec">
+<h1>About Us</h1>
+<p>Since 2011,<br>Elite Imaging Lab and Portrait Studio has specialized in top-notch,<br>portrait and professional photography for clients world wide.<br>
+    Given our expertise in photography<br>and 5 minute passport size photo processing for all countries,<br> we have continually been the forefront of all photography needs worldwide.</p>
 </div>
 
-<h2 style="text-align:center">Our Team</h2>
-<div class="row">
-    <div class="column">
-    <div class="card">
-        <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
-        <div class="container">
-        <h2>Jane Doe</h2>
-        <p class="title">CEO & Founder</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>jane@example.com</p>
-        <p><button class="button">Contact</button></p>
-        </div>
-    </div>
-    </div>
-
-    <div class="column">
-    <div class="card">
-        <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">
-        <div class="container">
-        <h2>Mike Ross</h2>
-        <p class="title">Art Director</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>mike@example.com</p>
-        <p><button class="button">Contact</button></p>
-        </div>
-    </div>
-    </div>
-
-    <div class="column">
-    <div class="card">
-        <img src="/w3images/team3.jpg" alt="John" style="width:100%">
-        <div class="container">
-        <h2>John Doe</h2>
-        <p class="title">Designer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>john@example.com</p>
-        <p><button class="button">Contact</button></p>
-        </div>
-    </div>
-    </div>
 </div>
+<h2 class="location">Our locations are: </h2>
+<div class="googlemap1">
+    <p>34 East Kings House Road, Barbican</p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3793.8851351283633!2d-76.77664243018495!3d18.030533596033983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8edb3ef73ec0388d%3A0xbd5520e9f86e2ebe!2sFontana%20Barbican!5e0!3m2!1sen!2sjm!4v1606876489756!5m2!1sen!2sjm" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+</div>
+<div class="googlemap2">
+    <p>New Kingston Business Center, 45-47 Grenada Crescent, New Kingston</p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3794.3959659147727!2d-76.7916514850465!3d18.006818287710164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8edb3faf89600711%3A0x2490be8ecce0879a!2sWoolworth%20New%20Kingston!5e0!3m2!1sen!2sjm!4v1606876999586!5m2!1sen!2sjm" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+</div>
+</div>
+
+</body>
 </html>
