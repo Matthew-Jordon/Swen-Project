@@ -52,7 +52,7 @@ class Processes {
             foreach ($x as $r) {
                 if ($x['Orderid'] == $id) {
                     echo("<table><tr><th>id</th><th>date made</th><th>quantity</th><th>request</th><th>delivery</th></tr>
-                    <tr><td>".$x['Orderid']."</td><td>".$x['dateCreated']."</td><td>".$x['quantity']."</td><td>".$x['request']."</td><td>".$x['delivery']."</td><td><a href='".$x['img']."'download='image'>Image File</a></td></tr></table>");
+                    <tr><td>".$x['Orderid']."</td><td>".$x['dateCreated']."</td><td>".$x['quantity']."</td><td>".$x['request']."</td><td>".$x['delivery']."</td><td><a href='".$x['img']."'download='".$x['id']."'>Image File</a></td></tr></table>");
                 }
             }
         }
