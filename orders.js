@@ -12,15 +12,20 @@ window.onload = funtion (){
 	searchT.addEventListener("click", function(e){
 		e.preventDefault();
 		
-		xhttp.open("GET", "server.php?searchI="+searchI+"&context=statussearch", true);
-		
-		var info = xhttp.responseText;
+		xhttp.open("GET", "server.php?trn="+searchI+"&context=statussearch", true);
 		
 		xhttp.onreadystatechange = function() {
 			if (xhttp.readyState == 4){
 				if(xhttp.status == 200){
 					if (searchI.length !== 0){
-						result.innerHTML = "Status of order is pending";
+						var info = xhttp.responseText;
+						result.innerHTML = info;
+					}
+				}
+			}else if(searchI.length < 9){
+				alert("Check TRN");
+			}
+		}
 		
 		// var textInput = document.getElementById("textinput").value;
 		for(i=0; i < textInput.length; i++){
@@ -34,12 +39,12 @@ window.onload = funtion (){
 		xttp.send();
 	});
 	
-	searchT.addEventListener("click". function(e){
+	checkOut.addEventListener("click". function(e){
 		e.preventDefault();
 		
-		if(searchI.length < 8){
-			alert("Check TRN");
-		}
+		
+		
+		xhttp.open("GET", "server.php?trn="+searchI+"&context=statussearch", true);
 	});
 	
 	end.addEventListener("click", function(e){
