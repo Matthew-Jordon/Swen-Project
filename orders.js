@@ -1,20 +1,37 @@
 window.onload = funtion (){
 	var btn = document.querySelector("button")[0];
-	var searchI = document.getElementById("searchbu");
+	var textInput = document.getElementsByTagName("input");
+	var searchI = document.getElementById("searchinput").value;
 	var searchT = document.getElementById("searchTRN");
+	var checkOut = document.getElementById("checkout");
+	var end = document.getElementById("cancel");
+	var result = document.getElementsByClassName("result");
+	var xhttp = new XMLHttpRequest();
 	
 	
-	btn.addEventListener("click", function(e){
+	searchT.addEventListener("click", function(e){
 		e.preventDefault();
 		
-		var textInput = document.getElementById("textinput").value;
+		xhttp.open("GET", "server.php?searchI="+searchI+"&context=statussearch", true);
+		
+		var info = xhttp.responseText;
+		
+		xhttp.onreadystatechange = function() {
+			if (xhttp.readyState == 4){
+				if(xhttp.status == 200){
+					if (searchI.length !== 0){
+						result.innerHTML = "Status of order is pending";
+		
+		// var textInput = document.getElementById("textinput").value;
 		for(i=0; i < textInput.length; i++){
-			if (textInput[i] == ""){
+			if (textInput[i].value == ""){
 				textInput[i].style.background = "red";
 				textInput[i].classList.add("error");
 				textInput[i].setCustomValidity("Please fill out this field");
 			}
 		}
+		
+		xttp.send();
 	});
 	
 	searchT.addEventListener("click". function(e){
@@ -22,6 +39,14 @@ window.onload = funtion (){
 		
 		if(searchI.length < 8){
 			alert("Check TRN");
+		}
+	});
+	
+	end.addEventListener("click", function(e){
+		e.preventDefault();
+		
+		for(i=0; i < textInput.length; i++){
+		textInput[i].value = "";
 		}
 	}
 }
