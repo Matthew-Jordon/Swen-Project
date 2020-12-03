@@ -3,6 +3,18 @@
     padding: 0;
     font-family: sans-serif;
 }
+.Admin-order-change{
+    text-align: center
+}
+.Admin-Id-num{
+    text-align: center
+}
+legend{
+    text-align: center
+}
+.Admin-submit{
+    text-align: center;
+}
 .menu{
     background-color: #3c0b64;
 }
