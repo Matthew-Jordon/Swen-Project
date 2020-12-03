@@ -17,7 +17,7 @@
             text-align: center;
         }
     
-        .order-search,.passpic, .mug11, .mug16, .keyS, .keyL, .p4x6, .p5x7, .p6x8, .p8x10, .p8x12, .p10x12, .p11x14, .p11x17, .p13x16, .custom{
+        .trnsubmit,.orderdate,.order-search,.passpic, .mug11, .mug16, .keyS, .keyL, .p4x6, .p5x7, .p6x8, .p8x10, .p8x12, .p10x12, .p11x14, .p11x17, .p13x16, .custom{
             padding-bottom: 15px;
             float: left;
         }
@@ -62,164 +62,180 @@
     <div class="head">
         <legend>Your Order</legend>
     </div>
-    <form method="post" action="sql conn.php"enctype="multipart/form-data" class="form-horizontal">
+    <form>
         <fieldset>
 
-    <form class="form-horizontal">
+    <form>
         <fieldset>
             
-        <!-- Search input-->
-        <div class="order-search">
-          <label class="col-md-4 control-label" for="searchinput">Order Progress</label>
-          <div class="col-md-4">
-            <input id="searchinput" name="searchinput" type="search" placeholder="Please enter your TRN" class="form-control input-md">
-            <p class="help-block">Here you can check the status of your order/s</p>
-          </div>
-        </div>
-        <div class="result">
+<!-- Search input-->
+<div class="order-search">
+    <label class="col-md-4 control-label" for="searchinput">Order Progress</label>
+    <div class="col-md-4">
+      <input id="searchinput" name="searchinput" type="search" placeholder="Please enter your TRN" class="form-control input-md">
+      <button id="searchTRN" name="searchTRN" class="btn">Search</button>
+      <p class="help-block">Here you can check the status of your order/s</p>
+    </div>
+  </div>
+  <div class="result">
 
-        </div>
+  </div>
         
         </fieldset>
         </form>
     <form class="form-horizontal">
         <fieldset>
-        <!--  <div class="chd">
-                <img src="photos/children.jpg">
-            </div> -->
+     
+            <div class="trnsubmit">
+                <label class="trn-sub" for="cust-trn">TRN</label>  
+                <div class="trn-sub-in">
+                <input id="cust-trn" name="cust-trn" type="text" placeholder="Please enter your TRN" class="form-control input-md"><br>
+                <span class="help-block">*Please enter your TRN to identify your order</span>  
+                </div>
+                </div>       
 
-                
+
+         <!-- Text input-->
+         <div class="orderdate">
+            <label class="orderappt" for="cust-orderappt">Order Date</label>  
+            <div class="orderappt-in">
+            <input id="cust-orderappt" name="cust-orderappt" type="text" placeholder="Please enter DD/MM/YYYY" class="form-control input-md"><br>
+            <span class="help-block">*Please enter the date which you would like to schedule pickup</span>  
+            </div>
+            </div> 
+      
+       
         <!-- Text input-->
         <div class="passpic">
-        <label class="col-md-4 control-label" for="textinput">Passport Sized Photograph</label>  
-        <div class="col-md-4">
-        <input id="textinput" name="textinput" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
+        <label class="passpic-order" for="cust-passpic-order">Passport Sized Photograph</label>  
+        <div class="passpic-in">
+        <input id="cust-passpic-order" name="cust-passpic-order" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
         <span class="help-block">*Photograph must be uploaded/appointment scheduled</span>  
         </div>
         </div>
         
         <!-- Text input-->
         <div class="mug11">
-        <label class="col-md-4 control-label" for="textinput">Mug (11oz)</label>  
-        <div class="col-md-4">
-        <input id="textinput" name="textinput" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
+        <label class="mug11-order" for="cust-mug11-order">Mug (11oz)</label>  
+        <div class="mug11-in">
+        <input id="cust-mug11-order" name="cust-mug11-order" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
         <span class="help-block">*Photograph must be uploaded/appointment scheduled</span>  
         </div>
         </div>
         
         <!-- Text input-->
         <div class="mug16">
-        <label class="col-md-4 control-label" for="textinput">Mug (16oz)</label>  
-        <div class="col-md-4">
-        <input id="textinput" name="textinput" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
+        <label class="mug16-order" for="cust-mug16-order">Mug (16oz)</label>  
+        <div class="mug16-in">
+        <input id="cust-mug16-order" name="cust-mug16-order" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
         <span class="help-block">*Photograph must be uploaded/appointment scheduled</span>  
         </div>
         </div>
         
         <!-- Text input-->
         <div class="keyS">
-        <label class="col-md-4 control-label" for="textinput">Picture Keychain (small)</label>  
-        <div class="col-md-4">
-        <input id="textinput" name="textinput" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
+        <label class="KeyS-order" for="cust-KeyS-order">Picture Keychain (small)</label>  
+        <div class="KeyS-in">
+        <input id="cust-KeyS-order" name="cust-KeyS-order" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
         <span class="help-block">*Photograph must be uploaded/appointment scheduled</span>  
         </div>
         </div>
         
         <!-- Text input-->
         <div class="keyL">
-        <label class="col-md-4 control-label" for="textinput">Picture Keychain (large)</label>  
-        <div class="col-md-4">
-        <input id="textinput" name="textinput" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
+        <label class="KeyL-order" for="cust-KeyL-order">Picture Keychain (large)</label>  
+        <div class="KeyL-in">
+        <input id="cust-KeyL-order" name="cust-KeyL-order" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
         <span class="help-block">*Photograph must be uploaded/appointment scheduled</span>  
         </div>
         </div>
         
         <!-- Text input-->
         <div class="p4x6">
-        <label class="col-md-4 control-label" for="textinput">4x6 Photograph</label>  
-        <div class="col-md-4">
-        <input id="textinput" name="textinput" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
+        <label class="p4x6-order" for="cust-p4x6-order">4x6 Photograph</label>  
+        <div class="p4x6-in">
+        <input id="cust-p4x6-order" name="cust-p4x6-order" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
         <span class="help-block">*Photograph must be uploaded/appointment scheduled</span>  
         </div>
         </div>
 
         <!-- Text input-->
         <div class="p5x7">
-            <label class="col-md-4 control-label" for="textinput">5x7 Photograph</label>  
-            <div class="col-md-4">
-            <input id="textinput" name="textinput" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
+            <label class="p5x7-order" for="cust-p5x7-order">5x7 Photograph</label>  
+            <div class="p5x7-in">
+            <input id="cust-p5x7-order" name="cust-p5x7-order" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
             <span class="help-block">*Photograph must be uploaded/appointment scheduled</span>  
             </div>
             </div>
         
         <!-- Text input-->
         <div class="p6x8">
-        <label class="col-md-4 control-label" for="textinput">6x8 Photograph</label>  
-        <div class="col-md-4">
-        <input id="textinput" name="textinput" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
+        <label class="p6x8-order" for="cust-p6x8-order">6x8 Photograph</label>  
+        <div class="p6x8-in">
+        <input id="cust-p6x8-order" name="cust-p6x8-order" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
         <span class="help-block">*Photograph must be uploaded/appointment scheduled</span>  
         </div>
         </div>
         
         <!-- Text input-->
         <div class="p8x10">
-        <label class="col-md-4 control-label" for="textinput">8x10 Photograph</label>  
-        <div class="col-md-4">
-        <input id="textinput" name="textinput" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
+        <label class="p8x10-order" for="cust-p8x10-order">8x10 Photograph</label>  
+        <div class="p8x10-in">
+        <input id="cust-p8x10-order" name="cust-p8x10-order" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
         <span class="help-block">*Photograph must be uploaded/appointment scheduled</span>  
         </div>
         </div>
         
         <!-- Text input-->
         <div class="p8x12">
-        <label class="col-md-4 control-label" for="textinput">8x12 Photograph</label>  
-        <div class="col-md-4">
-        <input id="textinput" name="textinput" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
+        <label class="p8x12-order" for="cust-p8x10-order">8x12 Photograph</label>  
+        <div class="p8x12-in">
+        <input id="cust-p8x10-order" name="cust-p8x10-order" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
         <span class="help-block">*Photograph must be uploaded/appointment scheduled</span>  
         </div>
         </div>
         
         <!-- Text input-->
         <div class="p10x12">
-        <label class="col-md-4 control-label" for="textinput">10x12 Photograph</label>  
-        <div class="col-md-4">
-        <input id="textinput" name="textinput" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
+        <label class="p10x12-order" for="cust-p10x12-order">10x12 Photograph</label>  
+        <div class="p10x12-in">
+        <input id="cust-p10x12-order" name="cust-p10x12-order" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
         <span class="help-block">*Photograph must be uploaded/appointment scheduled</span>  
         </div>
         </div>
         
         <!-- Text input-->
         <div class="p11x14">
-        <label class="col-md-4 control-label" for="textinput">11x14 Photograph</label>  
-        <div class="col-md-4">
-        <input id="textinput" name="textinput" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
+        <label class="p11x14-order" for="cust-p11x14-order">11x14 Photograph</label>  
+        <div class="p11x14-in">
+        <input id="cust-p11x14-order" name="cust-p11x14-order" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
         <span class="help-block">*Photograph must be uploaded/appointment scheduled</span>  
         </div>
         </div>
 
         <!-- Text input-->
         <div class="p11x17">
-            <label class="col-md-4 control-label" for="textinput">11x17 Photograph</label>  
-            <div class="col-md-4">
-            <input id="textinput" name="textinput" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
+            <label class="p11x17-order" for="cust-p11x17-order">11x17 Photograph</label>  
+            <div class="p11x17-in">
+            <input id="cust-p11x17-order" name="cust-p11x17-order" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
             <span class="help-block">*Photograph must be uploaded/appointment scheduled</span>  
             </div>
             </div>
         
         <!-- Text input-->
         <div class="p13x16">
-        <label class="col-md-4 control-label" for="textinput">13x16 Photograph</label>  
-        <div class="col-md-4">
-        <input id="textinput" name="textinput" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
+        <label class="p13x16-order" for="cust-p13x16-order">13x16 Photograph</label>  
+        <div class="p13x16-in">
+        <input id="cust-p13x16-order" name="cust-p13x16-order" type="text" placeholder="Please enter amount" class="form-control input-md"><br>
         <span class="help-block">*Photograph must be uploaded/appointment scheduled</span>  
         </div>
         </div>
         
         <!-- Text input-->
         <div class="custom">
-        <label class="col-md-4 control-label" for="textinput">Custom Sized Photograph</label>  
-        <div class="col-md-4">
-        <input id="textinput" name="textinput" type="text" placeholder="Please enter dimensions" class="form-control input-md"><br>
+        <label class="custom-order" for="cust-custom-order">Custom Sized Photograph</label>  
+        <div class="custom-in">
+        <input id="cust-custom-order" name="cust-custom-order" type="text" placeholder="Please enter dimensions" class="form-control input-md"><br>
         <span class="help-block">*Photograph must be uploaded/appointment scheduled</span>  
         </div>
         </div>
