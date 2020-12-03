@@ -1,6 +1,35 @@
 <html>
-    <head>
-        <title>Elite Imaging Login Page</title>
-        <link rel="stylesheet" href="styles/Login.css">
-    </head>
+<head>
+<title>Login Form</title>
+  <link rel="stylesheet" href="styles/index.css">
+    <script type="text/javascript" src = "orders.js"></script>
+    <div class="menu">
+        <ul class="bannertxt">
+            <li class="logo"><img src="photos/eilapslogo.png"></li>
+            <li><a href="index.html" >Home</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="Gallery.html">Gallery</a></li>
+            <li><a href="Orders.html" class ="active">Orders</a></li>
+            <li><a href="About.html">About Us</a></li>
+        </ul>
+    </div>
+    <link rel="stylesheet" type="text/css" href="styles/Login.css">
+<body>
+    <div class="loginbox">
+    <img src="photos/avatar_purple.png" class="avatar">
+        <h1>Login Here</h1>
+        <form>
+            <p>Username</p>
+            <input type="text" name="" placeholder="Enter Username">
+            <p>Password</p>
+            <input type="password" name="" placeholder="Enter Password">
+            <input type="button" onclick="window.location.href='Admin.html';" value="Login" />
+            <!-- <input type="submit" name="" onclick="Admin.html"; value="Login"> -->
+            <a href="#">Recover password?</a><br>
+        </form>
+        
+    </div>
+
+</body>
+</head>
 </html>
