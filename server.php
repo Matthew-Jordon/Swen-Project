@@ -17,14 +17,13 @@
         $dsn = "mysql:host=".$this->$servername.";dbname=".$this->dbname.";charset=".$this->charset;
         $connect = new PDO($dsn,$this->user,$this->password);
         $connect->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-        $p = new process();
-        $p ->process();
      
     }catch (PDOException $e){
         echo "Connection failed: ".$e->getMessage;
     }
     
-
+    $p = new process();
+    $p ->process();
 
 class Processes {
     private $docmanager;
@@ -46,7 +45,7 @@ class Processes {
         if ($id == 0) {
             foreach ($x as $r) {
                     echo("<table><tr><th>id</th><th>date made</th><th>quantity</th><th>request</th><th>delivery</th></tr>
-                    <tr><td>".$x['Orderid']."</td><td>".$x['dateCreated']."</td><td>".$x['quantity']."</td><td>".$x['request']."</td><td>".$x['delivery']."</td><<td><a href='".$x['img']."'download='".$x['id']."'>Image File</a></td>/tr></table>");
+                    <tr><td>".$x['Orderid']."</td><td>".$x['dateCreated']."</td><td>".$x['quantity']."</td><td>".$x['request']."</td><td>".$x['delivery']."</td><td><a href='".$x['img']."'download='".$x['id']."'>Image File</a></td>/tr></table>");
                 }
             } else {
             foreach ($x as $r) {
@@ -99,6 +98,10 @@ class Processes {
             $time = $_REQUEST['time'];
             $type = $_REQUEST['type'];
             $this ->addToSchedule($id,$date,$time,$type);
+        } elseif (strcasecmp($con,"updatestatus")) {
+            $id = $_REQUEST['id'];
+            $status = $_REQUEST['status'];
+            $docmanager ->update_status($id,$status);
         }
     }
 }
@@ -121,9 +124,8 @@ class schedule {
 
 class Docmanager{
     function insertdata($id,$date,$quantity,$request,$delivery,$img){
-        $insertData = "INSERT INTO 'Request'('OrderId', 'dateCreated', 'quantity', 'request', 'delivery') 
-        VALUES ('$id','$date','$quantity','$request','$delivery')";
-        $insertimg = "INSERT INTO 'Request'('img') values (SELECT * FROM OPENROWSET($img, SINGLE_BLOB) as T1)";
+        $insertData = "INSERT INTO 'Request'('OrderId', 'dateCreated', 'quantity', 'request', 'delivery','img') 
+        VALUES ($id,$date,$quantity,$request,$delivery,SELECT * FROM OPENROWSET($img, SINGLE_BLOB) as T1)";
     
         $stmt = $connect->query($insertData);
     }
@@ -134,10 +136,13 @@ class Docmanager{
         return $results;
         
     }
+    function update_status($id,$status) {
+        $insertdata = "INSERT INTO 'Request'('status') WHERE Request.OrderId=$id VALUES ($status)"; 
+    }
 
     function store_invoice($invoice_id,$date_invoice,$price,$request){
         $insertData = "INSERT INTO 'invoice('invoice_id','date_invoice','price','request')
-        VALUES('$invoice_id','$date_invoice','$price','$request')";
+        VALUES($invoice_id,$date_invoice,$price,$request)";
     }
 
     function get_invoice($id){
@@ -147,7 +152,7 @@ class Docmanager{
     }
     function add_schedule($id,$date,$time,$type) {
         $insertData = "INSERT INTO 'Slot('cust_id','sdate','stime','stype')
-        VALUES('$id','$date','$time','$type')";
+        VALUES($id,$date,$time,$type)";
     }
     function display_sched() {
         $stmt = $connect->query("SELECT * FROM 'Slot'");
