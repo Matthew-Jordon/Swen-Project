@@ -38,21 +38,21 @@ class Processes {
     function registerRequest($id,$date,$quantity,$request,$delivery) {
         $docmanager ->insertdata($id,$date,$quantity,$request,$delivery);
         echo('request saved');
-        Notify();
+        $this ->Notify();
     }
 
     function receiveData($id) {
         $r = $docmanager ->retrieve_data();
-        if ($id == null) {
+        if ($id == 0) {
             foreach ($x as $r) {
                     echo("<table><tr><th>id</th><th>date made</th><th>quantity</th><th>request</th><th>delivery</th></tr>
-                    <tr><td>".$x['Orderid']."</td><td>".$x['dateCreated']."</td><td>".$x['quantity']."</td><td>".$x['request']."</td><td>".$x['delivery']."</td></tr></table>");
+                    <tr><td>".$x['Orderid']."</td><td>".$x['dateCreated']."</td><td>".$x['quantity']."</td><td>".$x['request']."</td><td>".$x['delivery']."</td><<td><a href='".$x['img']."'download='".$x['id']."'>Image File</a></td>/tr></table>");
                 }
             } else {
             foreach ($x as $r) {
                 if ($x['Orderid'] == $id) {
                     echo("<table><tr><th>id</th><th>date made</th><th>quantity</th><th>request</th><th>delivery</th></tr>
-                    <tr><td>".$x['Orderid']."</td><td>".$x['dateCreated']."</td><td>".$x['quantity']."</td><td>".$x['request']."</td><td>".$x['delivery']."</td><td><a href='".$x['img']."'download='".$x['id']."'>Image File</a></td></tr></table>");
+                    <tr><td>".$x['Orderid']."</td><td>".$x['dateCreated']."</td><td>".$x['quantity']."</td><td>".$x['request']."</td><td>".$x['delivery']."</td></tr></table>");
                 }
             }
         }
@@ -69,12 +69,36 @@ class Processes {
         $schedule.display();
     }
     function process() {
-        $req = $_REQUEST['req'];
-        $con = $_REQUEST['con'];
-        if (strcasecmp($con,"")) {
-            
-        } else if (strcasecmp($con,"")) {
-
+        $con = $_REQUEST['context'];
+        if (strcasecmp($con,"statussearch")) {
+            $trn = $_REQUEST['trn'];
+            $this ->receiveData($trn);
+        } else if (strcasecmp($con,"adminlogin")) {
+            $this ->receiveData(0);
+        } elseif (strcasecmp($con,"storeinvoice")) {
+            $id = $_REQUEST['id'];
+            $cdate = $_REQUEST['datecreated'];
+            $$price = $_REQUEST['price'];
+            $request = $_REQUEST['request'];
+            $docmanager.store_invoice($id,$cdate,$price,$request);
+        } elseif (strcasecmp($con,"displayinvoice")) {
+            $id = $_REQUEST['id'];
+            echo($docmanager.get_invoice($id));
+        } elseif (strcasecmp($con,"newrequest")) {
+            $id = $_REQUEST['id'];
+            $date = $_REQUEST['date'];
+            $quantity = $_REQUEST['quantity'];
+            $request = $_REQUEST['request'];
+            $delivery = $_REQUEST['delivery'];
+            $this ->registerRequest($id,$date,$quantity,$request,$delivery);
+        } elseif (strcasecmp($con,"displayschedule")) {
+            $this ->display_sc();
+        } elseif (strcasecmp($con,"addtoschedule")) {
+            $id = $_REQUEST['id'];
+            $date = $_REQUEST['date'];
+            $time = $_REQUEST['time'];
+            $type = $_REQUEST['type'];
+            $this ->addToSchedule($id,$date,$time,$type);
         }
     }
 }
@@ -107,7 +131,7 @@ class Docmanager{
     function retrieve_data(){
         $stmt = $connect->query("SELECT * FROM 'Request'");
         $results = $stmt ->fetchALL(PDO ::FETCH_ASSOC);
-        return $result;
+        return $results;
         
     }
 
@@ -119,7 +143,7 @@ class Docmanager{
     function get_invoice($id){
         $stmt = $connect->query("SELECT * FROM `invoice`");
         $results = $stmt ->fetchALL(PDO ::FETCH_ASSOC);
-        return $result;
+        return $results;
     }
     function add_schedule($id,$date,$time,$type) {
         $insertData = "INSERT INTO 'Slot('cust_id','sdate','stime','stype')
@@ -128,7 +152,7 @@ class Docmanager{
     function display_sched() {
         $stmt = $connect->query("SELECT * FROM 'Slot'");
         $results = $stmt ->fetchALL(PDO ::FETCH_ASSOC);
-        return $result;
+        return $results;
     }
 }
 
